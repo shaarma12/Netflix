@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 const Login = () => {
+  const [signin, setSignin] = useState(true);
   return (
     <div>
       <Header />
@@ -10,9 +12,16 @@ const Login = () => {
       />
       <div className="absolute bottom-[-4rem] flex flex-col left-[34rem] w-[28rem] h-[43rem] bg-black bg-opacity-80 items-center rounded-md">
         <h1 className="text-white mr-[11.3rem] mt-14 mb-9 text-4xl font-medium">
-          Sign In
+          {signin ? "Sign In" : "Sign Up"}
         </h1>
         <form className="flex flex-col items-center">
+          {!signin && (
+            <input
+              className="mb-4 py-[0.8rem] px-[3.8rem] rounded-md bg-[#333] placeholder:text-lg"
+              type="text"
+              placeholder="Name"
+            />
+          )}
           <input
             className="mb-4 py-[0.8rem] px-[3.8rem] rounded-md bg-[#333] placeholder:text-lg"
             type="text"
@@ -24,7 +33,7 @@ const Login = () => {
             placeholder="Password"
           />
           <button className="py-[0.8rem] px-[7.8rem] bg-[#e50914] text-white mt-6 mb-4 rounded-md font-bold">
-            Sign In
+            {signin ? "Sign In" : "Sign Up"}
           </button>
         </form>
         <div className="flex">
@@ -36,10 +45,17 @@ const Login = () => {
             <p className="text-gray-300 text-sm hover:underline">Need help?</p>
           </Link>
         </div>
-        <div className="flex mr-[5.5rem] mt-24 text-md">
-          <p className="text-[#a09c9c] mr-1">New to Netflix?</p>
-          <p className="font-medium hover:underline text-white cursor-pointer">
-            Sign up now
+        <div className="flex mr-[5.5rem] mt-24 text-md ">
+          <p className="text-[#a09c9c] mr-1">
+            {signin ? "New to Netflix?" : "Existing User?"}
+          </p>
+          <p
+            className="font-medium hover:underline text-white cursor-pointer"
+            onClick={() => {
+              setSignin(!signin);
+            }}
+          >
+            {signin ? "Sign up now" : "Sign in now"}
           </p>
         </div>
         <div className="flex">
