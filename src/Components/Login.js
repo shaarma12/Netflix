@@ -11,7 +11,7 @@ const Login = () => {
         alt="bg-img"
       />
       <div className="absolute bottom-[-3rem] flex flex-col left-[34rem] w-[29rem] h-[42rem] bg-black bg-opacity-80 items-center rounded-md">
-        <h1 className="text-white mr-[12rem] mt-14 mb-9 text-4xl font-medium">
+        <h1 className="text-white mr-[12.5rem] mt-14 mb-9 text-4xl font-medium">
           {signin ? "Sign In" : "Sign Up"}
         </h1>
         <form className="flex flex-col items-center">
@@ -32,23 +32,20 @@ const Login = () => {
             type="password"
             placeholder="Password"
           />
-          <button className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-4 rounded-md font-bold">
+          <button className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold">
             {signin ? "Sign In" : "Sign Up"}
           </button>
         </form>
         <div className="flex">
           <div className="flex mr-[8rem]">
-            <input
-              className="w-[1.15rem] mr-1 bg-[#333] border-none "
-              type="checkbox"
-            />
+            <input className="w-[1.15rem] mr-1" type="checkbox" />
             <p className="text-gray-300 text-sm">Remember me</p>
           </div>
           <Link to="/">
             <p className="text-gray-300 text-sm hover:underline">Need help?</p>
           </Link>
         </div>
-        <div className="flex mr-[6.2rem] mt-20 text-md ">
+        <div className="flex mr-[6.8rem] mt-20 text-md ">
           <p className="text-[#a09c9c] mr-1">
             {signin ? "New to Netflix?" : "Existing User?"}
           </p>
@@ -62,7 +59,7 @@ const Login = () => {
           </p>
         </div>
         <div className="flex">
-          <p className="text-[#a09c9c] px-14 text-sm ml-4 font-medium mt-2">
+          <p className="text-[#a09c9c] px-14 text-sm ml-5 font-medium mt-2">
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot.
             <Link to="/">
