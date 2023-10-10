@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import { validate } from "../Utils/validate";
 const Login = () => {
   const [signin, setSignin] = useState(true);
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const [ErrorMessage, setErrorMessage] = useState();
   return (
     <div>
       <Header />
@@ -14,25 +19,41 @@ const Login = () => {
         <h1 className="text-white mr-[12.5rem] mt-14 mb-9 text-4xl font-medium">
           {signin ? "Sign In" : "Sign Up"}
         </h1>
-        <form className="flex flex-col items-center">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex flex-col items-center"
+        >
           {!signin && (
             <input
-              className="mb-4 py-[0.8rem] px-[3.8rem] rounded-md bg-[#333] placeholder:text-lg text-white text-lg"
+              ref={name}
+              className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="text"
               placeholder="Name"
             />
           )}
           <input
+            ref={email}
             className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
             type="text"
             placeholder="Email or phone number"
           />
           <input
+            ref={password}
             className="mb-5 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholde:text-md placeholder-[#8c8c8c] text-white text-lg"
             type="password"
             placeholder="Password"
           />
-          <button className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold">
+          <button
+            className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
+            onClick={() => {
+              const errorMessage = validate(
+                name.current.value,
+                email.current.value,
+                password.current.value
+              );
+              setErrorMessage(errorMessage);
+            }}
+          >
             {signin ? "Sign In" : "Sign Up"}
           </button>
         </form>
