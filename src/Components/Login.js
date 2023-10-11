@@ -10,12 +10,16 @@ const Login = () => {
   const [ErrorMessage, setErrorMessage] = useState();
   return (
     <div>
-      <Header />
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-        alt="bg-img"
-      />
-      <div className="absolute bottom-[-2.8rem] flex flex-col left-[34rem] w-[28rem] h-[41.5rem] bg-black bg-opacity-[0.89] items-center rounded-md">
+      <div class="relative">
+        <Header />
+        <img
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          alt="Your Image"
+        />
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+      </div>
+
+      <div className="absolute bottom-[-2.8rem] flex flex-col left-[34rem] w-[28rem] h-[41.5rem] bg-black bg-opacity-[0.85] items-center rounded-md">
         <h1 className="text-white mr-[12.5rem] mt-14 mb-9 text-4xl font-medium">
           {signin ? "Sign In" : "Sign Up"}
         </h1>
@@ -85,7 +89,7 @@ const Login = () => {
           </p>
         </div>
         <div className="flex">
-          <p className="text-[#a09c9c] px-14 text-sm ml-5 font-medium mt-2">
+          <p className="text-[#a09c9c] px-14 text-sm ml-3 font-medium mt-2">
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot.
             <Link to="/">
