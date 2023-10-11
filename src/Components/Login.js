@@ -12,10 +12,10 @@ const Login = () => {
     <div>
       <Header />
       <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/893a42ad-6a39-43c2-bbc1-a951ec64ed6d/1d86e0ac-428c-4dfa-9810-5251dbf446f8/IN-en-20231002-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg"
         alt="bg-img"
       />
-      <div className="absolute bottom-[-3rem] flex flex-col left-[34rem] w-[29rem] h-[42rem] bg-black bg-opacity-80 items-center rounded-md">
+      <div className="absolute bottom-[-2.8rem] flex flex-col left-[34rem] w-[28rem] h-[41.5rem] bg-black bg-opacity-[0.89] items-center rounded-md">
         <h1 className="text-white mr-[12.5rem] mt-14 mb-9 text-4xl font-medium">
           {signin ? "Sign In" : "Sign Up"}
         </h1>
@@ -31,18 +31,23 @@ const Login = () => {
               placeholder="Name"
             />
           )}
+          {/* <p className="text-yellow-400">{ErrorMessage}</p> */}
           <input
             ref={email}
             className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
             type="text"
             placeholder="Email or phone number"
           />
+          {/* <p className="text-yellow-400">{ErrorMessage}</p> */}
           <input
             ref={password}
             className="mb-5 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholde:text-md placeholder-[#8c8c8c] text-white text-lg"
             type="password"
             placeholder="Password"
           />
+          <p className="mr-10 text-yellow-500 text-lg font-medium">
+            {ErrorMessage}
+          </p>
           <button
             className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
             onClick={() => {

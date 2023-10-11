@@ -6,9 +6,8 @@ export const validate = (name, email, password) => {
   const isPasswordValid =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
 
-  if (!isNameValid) return "Please enter a valid Name.";
-  if (!isEmailValid)
-    return "Please enter a valid email address or phone number.";
-  if (!isPasswordValid) return "Please enter a valid Password.";
+  if (!isNameValid) return "Please Enter a Valid Name";
+  if (!isEmailValid) return "Please Enter a valid Email Address";
+  if (!isPasswordValid) return "Please Enter a Valid Password";
   return null;
 };
