@@ -98,13 +98,15 @@ const Login = () => {
           <button
             className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
             onClick={() => {
-              const errorMessageName = validateName(name.current.value);
+              if (!signin) {
+                const errorMessageName = validateName(name.current.value);
+                setErrorMessageName(errorMessageName);
+              }
               const errorMessageEmail = validateEmail(email.current.value);
               const errorMessagePassword = validatePassword(
                 password.current.value
               );
 
-              !signin && setErrorMessageName(errorMessageName);
               setErrorMessageEmail(errorMessageEmail);
               setErrorMessagePassword(errorMessagePassword);
             }}

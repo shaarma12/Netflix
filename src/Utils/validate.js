@@ -9,7 +9,7 @@ export const validateEmail = (email) => {
     email
   );
   if (!isEmailValid) return "Please enter a valid email address.";
-  return "Himanshu sharma";
+  return null;
 };
 export const validatePassword = (password) => {
   const isPasswordValid =
