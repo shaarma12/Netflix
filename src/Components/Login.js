@@ -1,13 +1,19 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import { validate } from "../Utils/validate";
+import {
+  validateEmail,
+  validateName,
+  validatePassword,
+} from "../Utils/validate";
 const Login = () => {
   const [signin, setSignin] = useState(true);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const [ErrorMessage, setErrorMessage] = useState();
+  const [ErrorMessageName, setErrorMessageName] = useState();
+  const [ErrorMessageEmail, setErrorMessageEmail] = useState();
+  const [errorMessagePassword, setErrorMessagePassword] = useState();
   return (
     <div>
       <div class="relative">
@@ -27,40 +33,80 @@ const Login = () => {
           onSubmit={(e) => e.preventDefault()}
           className="flex flex-col items-center"
         >
-          {!signin && (
+          {!signin && ErrorMessageName ? (
+            <div>
+              <input
+                ref={name}
+                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                type="text"
+                placeholder="Name"
+              />
+              <p className="ml-2 text-[#e87c03] mt-0 mb-4 text-sm">
+                {ErrorMessageName}
+              </p>
+            </div>
+          ) : (
+            !signin && (
+              <input
+                ref={name}
+                className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
+                type="text"
+                placeholder="Name"
+              />
+            )
+          )}
+          {ErrorMessageEmail ? (
+            <div>
+              <input
+                ref={email}
+                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                type="text"
+                placeholder="Email or phone number"
+              />
+              <p className="ml-2 text-[#e87c03] mt-0 mb-4 text-sm">
+                {ErrorMessageEmail}
+              </p>
+            </div>
+          ) : (
             <input
-              ref={name}
+              ref={email}
               className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="text"
-              placeholder="Name"
+              placeholder="Email or phone number"
             />
           )}
-          {/* <p className="text-yellow-400">{ErrorMessage}</p> */}
-          <input
-            ref={email}
-            className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
-            type="text"
-            placeholder="Email or phone number"
-          />
-          {/* <p className="text-yellow-400">{ErrorMessage}</p> */}
-          <input
-            ref={password}
-            className="mb-5 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholde:text-md placeholder-[#8c8c8c] text-white text-lg"
-            type="password"
-            placeholder="Password"
-          />
-          <p className="mr-10 text-yellow-500 text-lg font-medium">
-            {ErrorMessage}
-          </p>
+          {errorMessagePassword ? (
+            <div>
+              <input
+                ref={password}
+                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                type="password"
+                placeholder="Password"
+              />
+              <p className="ml-2 text-[#e87c03] mt-0 mb-3 text-sm">
+                {errorMessagePassword}
+              </p>
+            </div>
+          ) : (
+            <input
+              ref={password}
+              className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
+              type="password"
+              placeholder="Password"
+            />
+          )}
           <button
             className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
             onClick={() => {
-              const errorMessage = validate(
-                name.current.value,
-                email.current.value,
+              const errorMessageName = validateName(name.current.value);
+              const errorMessageEmail = validateEmail(email.current.value);
+              const errorMessagePassword = validatePassword(
                 password.current.value
               );
-              setErrorMessage(errorMessage);
+
+              !signin && setErrorMessageName(errorMessageName);
+              setErrorMessageEmail(errorMessageEmail);
+              setErrorMessagePassword(errorMessagePassword);
             }}
           >
             {signin ? "Sign In" : "Sign Up"}
@@ -68,7 +114,10 @@ const Login = () => {
         </form>
         <div className="flex">
           <div className="flex mr-[8rem]">
-            <input className="w-[1.15rem] mr-1" type="checkbox" />
+            <input
+              className="w-[1.15rem] mr-1 checked:bg-white"
+              type="checkbox"
+            />
             <p className="text-gray-300 text-sm">Remember me</p>
           </div>
           <Link to="/">
