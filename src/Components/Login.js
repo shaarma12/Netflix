@@ -6,6 +6,7 @@ import {
   validateName,
   validatePassword,
 } from "../Utils/validate";
+
 const Login = () => {
   const [signin, setSignin] = useState(true);
   const name = useRef(null);
