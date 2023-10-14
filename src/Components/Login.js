@@ -6,6 +6,11 @@ import {
   validateName,
   validatePassword,
 } from "../Utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../Utils/firebase";
 
 const Login = () => {
   const [signin, setSignin] = useState(true);
@@ -102,12 +107,45 @@ const Login = () => {
               if (!signin) {
                 const errorMessageName = validateName(name.current.value);
                 setErrorMessageName(errorMessageName);
+                //  calling API for Sign Up new user.
+
+                createUserWithEmailAndPassword(
+                  auth,
+                  // name.current.value,
+                  email.current.value,
+                  password.current.value
+                )
+                  .then((userCredential) => {
+                    // Signed up
+                    const user = userCredential.user;
+                    // console.log(user);
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                  });
               }
+
               const errorMessageEmail = validateEmail(email.current.value);
               const errorMessagePassword = validatePassword(
                 password.current.value
               );
 
+              // calling API for Sign-In User.
+              signInWithEmailAndPassword(
+                auth,
+                email.current.value,
+                password.current.value
+              )
+                .then((userCredential) => {
+                  // Signed in
+                  const user = userCredential.user;
+                  console.log(user);
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                });
               setErrorMessageEmail(errorMessageEmail);
               setErrorMessagePassword(errorMessagePassword);
             }}
