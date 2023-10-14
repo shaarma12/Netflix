@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   validateEmail,
   validateName,
@@ -20,6 +20,7 @@ const Login = () => {
   const [ErrorMessageName, setErrorMessageName] = useState();
   const [ErrorMessageEmail, setErrorMessageEmail] = useState();
   const [errorMessagePassword, setErrorMessagePassword] = useState();
+  const navigate = useNavigate();
   return (
     <div>
       <div class="relative">
@@ -118,7 +119,7 @@ const Login = () => {
                   .then((userCredential) => {
                     // Signed up
                     const user = userCredential.user;
-                    // console.log(user);
+                    navigate("/browse");
                   })
                   .catch((error) => {
                     const errorCode = error.code;
@@ -140,6 +141,7 @@ const Login = () => {
                 .then((userCredential) => {
                   // Signed in
                   const user = userCredential.user;
+                  navigate("/browse");
                   console.log(user);
                 })
                 .catch((error) => {
