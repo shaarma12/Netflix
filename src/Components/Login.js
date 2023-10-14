@@ -9,9 +9,11 @@ import {
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-
+import { useDispatch } from "react-redux";
+import { signin } from "../Utils/userSlice";
 const Login = () => {
   const [signin, setSignin] = useState(true);
   const name = useRef(null);
@@ -21,6 +23,7 @@ const Login = () => {
   const [ErrorMessageEmail, setErrorMessageEmail] = useState();
   const [errorMessagePassword, setErrorMessagePassword] = useState();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div>
       <div class="relative">
@@ -119,7 +122,29 @@ const Login = () => {
                   .then((userCredential) => {
                     // Signed up
                     const user = userCredential.user;
-                    navigate("/browse");
+
+                    updateProfile(user, {
+                      displayName: name.current.value,
+                      photoURL:
+                        "https://avatars.githubusercontent.com/u/50957983?v=4",
+                    })
+                      .then(() => {
+                        // Profile updated!
+                        const { email, displayName, photoURL } =
+                          auth.currentUser;
+                        dispatch(
+                          signin({
+                            email: email,
+                            displayName: displayName,
+                            photoURL: photoURL,
+                          })
+                        );
+                        navigate("/browse");
+                      })
+                      .catch((error) => {
+                        // An error occurred
+                        // ...
+                      });
                   })
                   .catch((error) => {
                     const errorCode = error.code;
