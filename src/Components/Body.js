@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
-import { signin, signout } from "../Utils/userSlice";
+import { addUser, removeUser } from "../Utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 
 const Body = () => {
@@ -14,13 +14,18 @@ const Body = () => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        const { email, displayName, photoURL } = user;
+        const { uid, email, displayName, photoURL } = user;
         dispatch(
-          signin({ email: email, displayName: displayName, photoURL: photoURL })
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
         );
       } else {
         // User is signed out
-        dispatch(signout());
+        dispatch(removeUser());
       }
     });
   }, []);

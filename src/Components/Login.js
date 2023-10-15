@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
-import { signin } from "../Utils/userSlice";
+import { addUser } from "../Utils/userSlice";
 const Login = () => {
   const [signin, setSignin] = useState(true);
   const name = useRef(null);
@@ -133,7 +133,7 @@ const Login = () => {
                         const { email, displayName, photoURL } =
                           auth.currentUser;
                         dispatch(
-                          signin({
+                          addUser({
                             email: email,
                             displayName: displayName,
                             photoURL: photoURL,
@@ -149,6 +149,7 @@ const Login = () => {
                   .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setErrorMessageEmail(errorMessage);
                   });
               }
 
@@ -167,11 +168,11 @@ const Login = () => {
                   // Signed in
                   const user = userCredential.user;
                   navigate("/browse");
-                  console.log(user);
                 })
                 .catch((error) => {
                   const errorCode = error.code;
                   const errorMessage = error.message;
+                  setErrorMessageEmail(errorMessage);
                 });
               setErrorMessageEmail(errorMessageEmail);
               setErrorMessagePassword(errorMessagePassword);
