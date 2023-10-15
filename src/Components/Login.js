@@ -149,33 +149,35 @@ const Login = () => {
                   .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    setErrorMessageEmail(errorMessage);
+                    errorMessage && setErrorMessageEmail(errorMessage);
                   });
+              } else {
+                const errorMessageEmail = validateEmail(email.current.value);
+                const errorMessagePassword = validatePassword(
+                  password.current.value
+                );
+
+                // calling API for Sign-In User.
+                signInWithEmailAndPassword(
+                  auth,
+                  email.current.value,
+                  password.current.value
+                )
+                  .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    navigate("/browse");
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    errorMessage &&
+                      signin &&
+                      setErrorMessageEmail(errorMessage);
+                  });
+                setErrorMessageEmail(errorMessageEmail);
+                setErrorMessagePassword(errorMessagePassword);
               }
-
-              const errorMessageEmail = validateEmail(email.current.value);
-              const errorMessagePassword = validatePassword(
-                password.current.value
-              );
-
-              // calling API for Sign-In User.
-              signInWithEmailAndPassword(
-                auth,
-                email.current.value,
-                password.current.value
-              )
-                .then((userCredential) => {
-                  // Signed in
-                  const user = userCredential.user;
-                  navigate("/browse");
-                })
-                .catch((error) => {
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  setErrorMessageEmail(errorMessage);
-                });
-              setErrorMessageEmail(errorMessageEmail);
-              setErrorMessagePassword(errorMessagePassword);
             }}
           >
             {signin ? "Sign In" : "Sign Up"}
