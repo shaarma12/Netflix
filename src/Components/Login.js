@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   validateEmail,
   validateName,
@@ -14,6 +14,8 @@ import {
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { USER_AVATAR } from "../Utils/constant";
+
 const Login = () => {
   const [signin, setSignin] = useState(true);
   const name = useRef(null);
@@ -22,8 +24,8 @@ const Login = () => {
   const [ErrorMessageName, setErrorMessageName] = useState();
   const [ErrorMessageEmail, setErrorMessageEmail] = useState();
   const [errorMessagePassword, setErrorMessagePassword] = useState();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   return (
     <div>
       <div class="relative">
@@ -125,8 +127,7 @@ const Login = () => {
 
                     updateProfile(user, {
                       displayName: name.current.value,
-                      photoURL:
-                        "https://avatars.githubusercontent.com/u/50957983?v=4",
+                      photoURL: USER_AVATAR,
                     })
                       .then(() => {
                         // Profile updated!
@@ -139,7 +140,6 @@ const Login = () => {
                             photoURL: photoURL,
                           })
                         );
-                        navigate("/browse");
                       })
                       .catch((error) => {
                         // An error occurred
@@ -166,7 +166,6 @@ const Login = () => {
                   .then((userCredential) => {
                     // Signed in
                     const user = userCredential.user;
-                    navigate("/browse");
                   })
                   .catch((error) => {
                     const errorCode = error.code;

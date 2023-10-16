@@ -2,18 +2,45 @@ import { signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../Utils/userSlice";
+import { addUser, removeUser } from "../Utils/userSlice";
+import { LOGO } from "../Utils/constant";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // subscibing the store.
   const userSign = useSelector((store) => store.user);
-  console.log(userSign);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, Signed up
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    // unmounting
+    return () => unsubscribe;
+  }, []);
+
   return (
     <div className="absolute w-[13.5rem] ml-6 mb-1 z-50 opacity-100 filter contrast-125">
-      <img
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="logo"
-      />
+      <img src={LOGO} alt="logo" />
       {userSign && (
         <div>
           <div className="flex flex-col items-center relative left-[75rem] bottom-[4.9rem]">
@@ -26,8 +53,6 @@ const Header = () => {
               signOut(auth)
                 .then(() => {
                   // Sign-out successful.
-
-                  navigate("/");
                 })
                 .catch((error) => {
                   // An error happened.
