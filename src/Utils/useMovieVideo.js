@@ -3,14 +3,14 @@ import { options } from "./constant";
 import { useDispatch } from "react-redux";
 import { addTrailer } from "./moviesDataSlice";
 
-const useMovieVideo = () => {
+const useMovieVideo = ({ movieId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     fetchData();
   }, []);
   const fetchData = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/926393/videos?language=en-US",
+      `https://api.themoviedb.org/3/movie/+${movieId}+/videos?language=en-US`,
       options
     );
     const response = await data.json();
@@ -18,7 +18,8 @@ const useMovieVideo = () => {
     const rest = res.filter((i) => {
       return i?.type === "Trailer";
     });
-    dispatch(addTrailer(rest[0]));
+    const trailer = rest.length === 0 ? res[0] : rest[0];
+    dispatch(addTrailer(trailer));
   };
 };
 export default useMovieVideo;
