@@ -10,7 +10,7 @@ const Secondary = () => {
     <div>
       <MovieList title="Now Playing" movies={movies1} />
       <MovieList title="Popular Movies" movies={movies2} />
-      <MovieList title="Top Rated" movies={movies3} />
+      <MovieList title="Top Rated Movies" movies={movies3} />
       <MovieList title="Upcoming Movies" movies={movies4} />
     </div>
   );

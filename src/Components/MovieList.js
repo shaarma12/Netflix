@@ -2,12 +2,11 @@ import React from "react";
 import Moviecard from "./Moviecard";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
   return (
-    <div className="mb-14 bg-[#141414]">
-      <h1 className="text-white text-lg mb-4">{title}</h1>
+    <div className="pb-7 bg-[#141414] overflow-hidden">
+      <h1 className="text-white text-3xl mb-4 pl-14 font-bold">{title}</h1>
       <div className="flex overflow-x-scroll">
-        <div className="flex gap-2">
+        <div className="flex gap-2 pl-14">
           {movies?.map((i) => {
             return <Moviecard key={i.id} movieData={i} />;
           })}
