@@ -1,22 +1,30 @@
 import React from "react";
-
+import Play from "../Images/Play.png";
 const Title = ({ title, overview }) => {
   const Title = title.toUpperCase();
   return (
     <div className="absolute w-screen aspect-video bg-gradient-to-r from-black">
-      <div className="mt-64 ml-11">
-        <h1 className="text-7xl font-extrabold mb-3 text-white w-[35rem]">
+      <div className="mt-60 ml-11">
+        <h1 className="text-7xl font-extrabold mb-3 text-gray-100 w-[35rem]">
           {Title}
         </h1>
-        <h3 className="text-lg font-medium mb-6 text-white w-[35rem]">
+        <h3 className="text-md font-medium mb-6 text-gray-200 w-[36rem] text-justify">
           {overview}
         </h3>
-        <button className="bg-white text-black font-bold h-[3rem] w-[7.5rem] rounded-md mr-3">
-          Play
-        </button>
-        <button className="bg-gray-600 text-white font-bold h-[3rem] w-[10.5rem] rounded-md">
-          More Info
-        </button>
+        <div className="flex">
+          <button className="bg-white text-black font-bold h-[3rem] w-[8rem]  rounded-md mr-3 hover:opacity-80">
+            <div className="flex pl-5 justify-center">
+              <img
+                src={Play}
+                className="w-[1.7rem] mr-3 ml-2 h-[1.7rem] mt-[0.15rem]"
+              />
+              <p className="text-xl mb-1 mr-6">Play</p>
+            </div>
+          </button>
+          <button className="bg-[#6d6d6eb3] text-white font-bold h-[3rem] w-[10.5rem] rounded-md text-xl pb-1 hover:opacity-80">
+            More Info
+          </button>
+        </div>
       </div>
     </div>
   );
