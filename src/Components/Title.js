@@ -3,7 +3,7 @@ import Play from "../Images/Play.png";
 const Title = ({ title, overview }) => {
   const Title = title.toUpperCase();
   return (
-    <div className="absolute w-screen aspect-video bg-gradient-to-r from-black">
+    <div className="absolute w-[94.5em] aspect-video bg-gradient-to-r from-black">
       <div className="mt-60 ml-11">
         <h1 className="text-7xl font-extrabold mb-3 text-gray-100 w-[35rem]">
           {Title}
