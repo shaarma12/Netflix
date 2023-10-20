@@ -16,8 +16,8 @@ const Secondary = () => {
         <MovieList title="Popular Movies" movies={movies2} />
         <MovieList title="Top Rated Movies" movies={movies3} />
         <MovieList title="Upcoming Movies" movies={movies4} />
-        <MovieList title="Top Rated" movies={topRatedShows} />
-        <MovieList title="On The Air" movies={onAirShow} />
+        <MovieList title="Top Rated Shows" movies={topRatedShows} />
+        <MovieList title="On The Air Shows" movies={onAirShow} />
       </div>
     </div>
   );
