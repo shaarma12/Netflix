@@ -7,11 +7,13 @@ const Secondary = () => {
   const movies3 = useSelector((store) => store.movie?.topRatedMovies);
   const movies4 = useSelector((store) => store.movie?.upcomingMovies);
   return (
-    <div>
-      <MovieList title="Now Playing" movies={movies1} />
-      <MovieList title="Popular Movies" movies={movies2} />
-      <MovieList title="Top Rated Movies" movies={movies3} />
-      <MovieList title="Upcoming Movies" movies={movies4} />
+    <div className="bg-[#141414]">
+      <div className="-mt-[15rem] relative">
+        <MovieList title="Now Playing" movies={movies1} />
+        <MovieList title="Popular Movies" movies={movies2} />
+        <MovieList title="Top Rated Movies" movies={movies3} />
+        <MovieList title="Upcoming Movies" movies={movies4} />
+      </div>
     </div>
   );
 };
