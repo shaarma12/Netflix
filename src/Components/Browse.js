@@ -6,6 +6,7 @@ import usePopularMovie from "../Utils/usePopularMovies";
 import useTopRatedMovie from "../Utils/useTopRatedMovie";
 import useUpcomingMovie from "../Utils/useUpcomingMovie";
 import useTopRatedShows from "../Utils/useTopRatedShows";
+import useOnTheAir from "../Utils/useOnTheAir";
 
 const Browse = () => {
   useNowPlayingMovie();
@@ -13,6 +14,7 @@ const Browse = () => {
   useTopRatedMovie();
   useUpcomingMovie();
   useTopRatedShows();
+  useOnTheAir();
   return (
     <div>
       <Header />
