@@ -11,7 +11,7 @@ const Secondary = () => {
   const onAirShow = useSelector((store) => store.movie?.onTheAir);
   return (
     <div className="bg-gradient-to-b from-black to-[#141414]">
-      <div className="-mt-[15rem] relative">
+      <div className="-mt-[10rem] relative">
         <MovieList title="Now Playing Movies" movies={movies1} />
         <MovieList title="Popular Movies" movies={movies2} />
         <MovieList title="Top Rated Movies" movies={movies3} />

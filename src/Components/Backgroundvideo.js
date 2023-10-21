@@ -16,7 +16,7 @@ const Backgroundvideo = ({ movieId }) => {
         title="YouTube video player"
         allowFullScreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        className="w-[94.974rem]  aspect-video"
+        className="w-[94.974rem]  aspect-video -mt-12"
       ></iframe>
     </div>
   );
