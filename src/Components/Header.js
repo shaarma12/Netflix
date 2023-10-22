@@ -1,4 +1,3 @@
-import { signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +7,10 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import search from "../Images/search.svg";
 import notification from "../Images/notification.svg";
+import up from "../Images/up.svg";
+import down from "../Images/down.svg";
+import Dropdown from "./Dropdown";
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,6 +18,7 @@ const Header = () => {
   // subscibing the store.
   const userSign = useSelector((store) => store.user);
   const [showInput, setShowInput] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -90,7 +94,7 @@ const Header = () => {
       )}
       {userSign && (
         <div>
-          <div className="flex justify-center relative left-[76rem] bottom-11">
+          <div className="flex justify-center relative left-[75rem] bottom-11">
             {showInput ? (
               <div className="flex w-52">
                 {
@@ -130,25 +134,21 @@ const Header = () => {
 
             <img
               src={userSign.photoURL}
-              className="w-8 rounded-md relative bottom-[0.15rem]"
+              className="w-8 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
+              onMouseOver={() => {
+                setShowDropDown(true);
+              }}
+              onMouseLeave={() => {
+                setShowDropDown(false);
+              }}
             />
-
-            {/* <p className="text-white font-medium">{userSign.displayName}</p> */}
+            {showDropDown ? (
+              <img src={up} className="w-4" />
+            ) : (
+              <img src={down} className="w-4" />
+            )}
+            {showDropDown && <Dropdown />}
           </div>
-          {/* <button
-            className="relative -top-[4.5rem] ml-[88rem] bg-red-700 w-20 py-3 rounded-md text-white hover:scale-y-105 transition-all duration-200 font-medium"
-            onClick={() => {
-              signOut(auth)
-                .then(() => {
-                  // Sign-out successful.
-                })
-                .catch((error) => {
-                  // An error happened.
-                });
-            }}
-          >
-            Sign Out
-          </button> */}
         </div>
       )}
     </div>
