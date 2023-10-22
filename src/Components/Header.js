@@ -101,7 +101,7 @@ const Header = () => {
                   <img
                     src={search}
                     alt="search"
-                    className="w-12 bg-[#2a2a2ab3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
+                    className="w-12 bg-[#1d1c1cb3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
                     onClick={() => {
                       setShowInput(false);
                     }}
