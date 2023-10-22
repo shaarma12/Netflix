@@ -120,7 +120,7 @@ const Header = () => {
               />
             )}
             <Link to="/browse">
-              <p className="text-white mr-5">Children</p>
+              <p className="text-white mr-6">Children</p>
             </Link>
             <img
               src={notification}

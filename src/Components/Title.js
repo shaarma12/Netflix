@@ -9,7 +9,7 @@ const Title = ({ title, overview }) => {
           {Title}
         </h1>
         <h3 className="text-md font-medium mb-6 text-gray-200 w-[33rem] text-justify">
-          {overview}
+          {overview.slice(0, 341)}
         </h3>
         <div className="flex">
           <button className="bg-white text-black font-bold h-[3rem] w-[8rem]  rounded-md mr-3 hover:opacity-80">
