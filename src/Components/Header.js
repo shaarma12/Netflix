@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <div className="absolute w-[13.5rem] ml-6 mb-1 z-50 opacity-100 filter contrast-125">
       {userSign ? (
-        <div>
+        <div className="sticky top-0">
           <div className="flex mt-14">
             <img src={LOGO} alt="logo" className="w-32 ml-5" />
             <ul className="flex text-white mx-9 mt-3 ">
