@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { USER_AVATAR } from "../Utils/constant";
 import { Link } from "react-router-dom";
@@ -9,11 +9,19 @@ import account from "../Images/account.svg";
 import { signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 
-const Dropdown = () => {
+const Dropdown = ({ setShowDropDown, imgRef }) => {
+  const dropDownRef = useRef();
   const user = useSelector((store) => store.user);
-  console.log(user);
+  window.addEventListener("click", (e) => {
+    if (e.target !== imgRef.current && e.target !== Dropdown.current) {
+      setShowDropDown(false);
+    }
+  });
   return (
-    <div className="absolute top-14 text-white w-56 ml-3  p-4 bg-[#222222b3] rounded-sm">
+    <div
+      className="absolute top-14 text-white w-56 ml-3  p-4 bg-[#202020b3] rounded-sm"
+      ref={dropDownRef}
+    >
       <div className="flex mb-2 mt-2">
         <img
           src={user?.photoURL}

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO } from "../Utils/constant";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import search from "../Images/search.svg";
 import notification from "../Images/notification.svg";
@@ -14,7 +14,7 @@ import Dropdown from "./Dropdown";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const imgRef = useRef();
   // subscibing the store.
   const userSign = useSelector((store) => store.user);
   const [showInput, setShowInput] = useState(false);
@@ -101,7 +101,7 @@ const Header = () => {
                   <img
                     src={search}
                     alt="search"
-                    className="w-12 bg-[#1d1c1cb3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
+                    className="w-12 bg-[#2a2a2ab3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
                     onClick={() => {
                       setShowInput(false);
                     }}
@@ -134,20 +134,20 @@ const Header = () => {
 
             <img
               src={userSign.photoURL}
+              ref={imgRef}
               className="w-8 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
-              onMouseOver={() => {
-                setShowDropDown(true);
-              }}
-              onMouseLeave={() => {
-                setShowDropDown(false);
+              onClick={() => {
+                setShowDropDown(!showDropDown);
               }}
             />
             {showDropDown ? (
-              <img src={up} className="w-4" />
+              <img src={up} className="w-4 cursor-pointer" />
             ) : (
-              <img src={down} className="w-4" />
+              <img src={down} className="w-4 cursor-pointer" />
             )}
-            {showDropDown && <Dropdown />}
+            {showDropDown && (
+              <Dropdown setShowDropDown={setShowDropDown} imgRef={imgRef} />
+            )}
           </div>
         </div>
       )}
