@@ -117,7 +117,7 @@ const Header = () => {
               <img
                 src={search}
                 alt="Search"
-                className="w-6 cursor-pointer mr-6 mb-1 "
+                className="w-6 cursor-pointer mr-6 mb-1"
                 onClick={() => {
                   setShowInput(true);
                 }}
