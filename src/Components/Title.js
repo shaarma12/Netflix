@@ -1,5 +1,7 @@
 import React from "react";
 import Play from "../Images/Play.png";
+import info from "../Images/info.svg";
+
 const Title = ({ title, overview }) => {
   const Title = title.toUpperCase();
   return (
@@ -21,8 +23,15 @@ const Title = ({ title, overview }) => {
               <p className="text-xl mb-1 mr-6">Play</p>
             </div>
           </button>
-          <button className="bg-[#6d6d6eb3] text-white font-bold h-[3rem] w-[10.5rem] rounded-md text-xl pb-1 hover:opacity-80">
-            More Info
+          <button className="bg-[#6d6d6eb3] text-white font-bold h-[3rem] w-[11.2rem] rounded-md text-xl pb-1 hover:opacity-80">
+            <div className="flex justify-center mt-2 -ml-2">
+              <img
+                src={info}
+                alt="More Info"
+                className="w-9 -mt-[0.3rem] mr-2"
+              />
+              <p className="-mt-[0.15rem]">More Info</p>
+            </div>
           </button>
         </div>
       </div>
