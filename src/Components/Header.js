@@ -12,6 +12,7 @@ import down from "../Images/down.svg";
 import Dropdown from "./Dropdown";
 
 const Header = () => {
+  const [userInput, setUserInput] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const imgRef = useRef();
@@ -103,12 +104,15 @@ const Header = () => {
                     alt="search"
                     className="w-12 bg-[#2a2a2ab3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
                     onClick={() => {
-                      setShowInput(false);
+                      userInput ? setShowInput(true) : setShowInput(false);
                     }}
                   />
                 }
                 <input
                   type="text"
+                  onChange={(e) => {
+                    setUserInput(e.target.value);
+                  }}
                   placeholder="Movies,TV Shows"
                   className="bg-[#2a2a2ab3] rounded-r-sm px-9 py-1 -ml-56 mr-10 relative bottom-[0.15rem] outline-none text-white border-y-2 border-r-2 border-gray-200"
                 />
