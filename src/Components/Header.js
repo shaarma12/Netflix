@@ -136,15 +136,17 @@ const Header = () => {
               />
             )}
             <Link to="/browse">
-              <div
-                className="flex hover:opacity-70 transition-all duration-200"
-                onClick={() => {
-                  dispatch(GPTsearch(true));
-                }}
-              >
-                <p className="text-white mr-1">GPT</p>
-                <p className="text-white mr-6">Search</p>
-              </div>
+              {!GPTPage && (
+                <div
+                  className="flex hover:opacity-70 transition-all duration-200"
+                  onClick={() => {
+                    dispatch(GPTsearch(true));
+                  }}
+                >
+                  <p className="text-white mr-1">GPT</p>
+                  <p className="text-white mr-6">Search</p>
+                </div>
+              )}
             </Link>
             <img
               src={notification}
