@@ -52,40 +52,40 @@ const Header = () => {
             <img src={LOGO} alt="logo" className="w-32 ml-5" />
             <ul className="flex text-white mx-9 mt-3 ">
               <Link to="/browse">
-                <li className="mr-5">Home</li>
+                <li className="mr-5 hover:opacity-70 transition-all duration-200">
+                  Home
+                </li>
               </Link>
               <Link to="/browse">
-                <li className="mr-1">TV</li>
+                <div className="flex hover:opacity-70 transition-all duration-200">
+                  <li className="mr-1">TV</li>
+                  <li className="mr-5">Shows</li>
+                </div>
               </Link>
               <Link to="/browse">
-                <li className="mr-5">Shows</li>
+                <li className="mr-5 hover:opacity-70 transition-all duration-200">
+                  Movies
+                </li>
               </Link>
               <Link to="/browse">
-                <li className="mr-5">Movies</li>
+                <div className="flex hover:opacity-70 transition-all duration-200">
+                  <li className="mr-1">New</li>
+                  <li className="mr-1">&</li>
+                  <li className="mr-5">Popular</li>
+                </div>
               </Link>
               <Link to="/browse">
-                <li className="mr-1">New</li>
+                <div className="flex hover:opacity-70 transition-all duration-200">
+                  <li className="mr-1">My</li>
+                  <li className="mr-5">List</li>
+                </div>
               </Link>
               <Link to="/browse">
-                <li className="mr-1">&</li>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-5">Popular</li>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-1">My</li>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-5">List</li>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-1">Browse</li>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-1">by</li>
-              </Link>
-              <Link to="/browse">
-                <li>Languages</li>
+                <div className="flex hover:opacity-70 transition-all duration-200">
+                  <li className="mr-1">Browse</li>
+                  <li className="mr-1">by</li>
+                  <li>Languages</li>
+                </div>
               </Link>
             </ul>
           </div>
@@ -128,7 +128,10 @@ const Header = () => {
               />
             )}
             <Link to="/browse">
-              <p className="text-white mr-6">Children</p>
+              <div className="flex hover:opacity-70 transition-all duration-200">
+                <p className="text-white mr-1">GPT</p>
+                <p className="text-white mr-6">Search</p>
+              </div>
             </Link>
             <img
               src={notification}
