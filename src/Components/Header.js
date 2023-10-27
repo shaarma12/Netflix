@@ -10,14 +10,17 @@ import notification from "../Images/notification.svg";
 import up from "../Images/up.svg";
 import down from "../Images/down.svg";
 import Dropdown from "./Dropdown";
+import { GPTsearch } from "../Utils/gptSlice";
 
 const Header = () => {
   const [userInput, setUserInput] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const imgRef = useRef();
-  // subscibing the store.
+  // subscibing the store for userSign-in.
   const userSign = useSelector((store) => store.user);
+  // Subscribing the store for the GPT Search Page.
+  const GPTPage = useSelector((store) => store.GPT?.GPTopen);
   const [showInput, setShowInput] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   useEffect(() => {
@@ -52,7 +55,12 @@ const Header = () => {
             <img src={LOGO} alt="logo" className="w-32 ml-5" />
             <ul className="flex text-white mx-9 mt-3 ">
               <Link to="/browse">
-                <li className="mr-5 hover:opacity-70 transition-all duration-200">
+                <li
+                  className="mr-5 hover:opacity-70 transition-all duration-200"
+                  onClick={() => {
+                    dispatch(GPTsearch(false));
+                  }}
+                >
                   Home
                 </li>
               </Link>
@@ -128,7 +136,12 @@ const Header = () => {
               />
             )}
             <Link to="/browse">
-              <div className="flex hover:opacity-70 transition-all duration-200">
+              <div
+                className="flex hover:opacity-70 transition-all duration-200"
+                onClick={() => {
+                  dispatch(GPTsearch(true));
+                }}
+              >
                 <p className="text-white mr-1">GPT</p>
                 <p className="text-white mr-6">Search</p>
               </div>
