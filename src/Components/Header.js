@@ -51,52 +51,101 @@ const Header = () => {
     <div className="absolute w-[13.5rem] ml-6 mb-1 z-50 opacity-100 filter contrast-125">
       {userSign ? (
         <div className="sticky top-0">
-          <div className="flex mt-14">
-            <img src={LOGO} alt="logo" className="w-32 ml-5" />
-            <ul className="flex text-white mx-9 mt-3 ">
-              <Link to="/browse">
-                <li
-                  className="mr-5 hover:opacity-70 transition-all duration-200"
-                  onClick={() => {
-                    dispatch(GPTsearch(false));
-                  }}
-                >
-                  Home
-                </li>
-              </Link>
-              <Link to="/browse">
-                <div className="flex hover:opacity-70 transition-all duration-200">
-                  <li className="mr-1">TV</li>
-                  <li className="mr-5">Shows</li>
-                </div>
-              </Link>
-              <Link to="/browse">
-                <li className="mr-5 hover:opacity-70 transition-all duration-200">
-                  Movies
-                </li>
-              </Link>
-              <Link to="/browse">
-                <div className="flex hover:opacity-70 transition-all duration-200">
-                  <li className="mr-1">New</li>
-                  <li className="mr-1">&</li>
-                  <li className="mr-5">Popular</li>
-                </div>
-              </Link>
-              <Link to="/browse">
-                <div className="flex hover:opacity-70 transition-all duration-200">
-                  <li className="mr-1">My</li>
-                  <li className="mr-5">List</li>
-                </div>
-              </Link>
-              <Link to="/browse">
-                <div className="flex hover:opacity-70 transition-all duration-200">
-                  <li className="mr-1">Browse</li>
-                  <li className="mr-1">by</li>
-                  <li>Languages</li>
-                </div>
-              </Link>
-            </ul>
-          </div>
+          {GPTPage ? (
+            <div className="flex mt-3">
+              <img src={LOGO} alt="logo" className="w-32 ml-5" />
+              <ul className="flex text-white mx-9 mt-3 ">
+                <Link to="/browse">
+                  <li
+                    className="mr-5 hover:opacity-70 transition-all duration-200"
+                    onClick={() => {
+                      dispatch(GPTsearch(false));
+                    }}
+                  >
+                    Home
+                  </li>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">TV</li>
+                    <li className="mr-5">Shows</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <li className="mr-5 hover:opacity-70 transition-all duration-200">
+                    Movies
+                  </li>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">New</li>
+                    <li className="mr-1">&</li>
+                    <li className="mr-5">Popular</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">My</li>
+                    <li className="mr-5">List</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">Browse</li>
+                    <li className="mr-1">by</li>
+                    <li>Languages</li>
+                  </div>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex mt-14">
+              <img src={LOGO} alt="logo" className="w-32 ml-5" />
+              <ul className="flex text-white mx-9 mt-3 ">
+                <Link to="/browse">
+                  <li
+                    className="mr-5 hover:opacity-70 transition-all duration-200"
+                    onClick={() => {
+                      dispatch(GPTsearch(false));
+                    }}
+                  >
+                    Home
+                  </li>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">TV</li>
+                    <li className="mr-5">Shows</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <li className="mr-5 hover:opacity-70 transition-all duration-200">
+                    Movies
+                  </li>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">New</li>
+                    <li className="mr-1">&</li>
+                    <li className="mr-5">Popular</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">My</li>
+                    <li className="mr-5">List</li>
+                  </div>
+                </Link>
+                <Link to="/browse">
+                  <div className="flex hover:opacity-70 transition-all duration-200">
+                    <li className="mr-1">Browse</li>
+                    <li className="mr-1">by</li>
+                    <li>Languages</li>
+                  </div>
+                </Link>
+              </ul>
+            </div>
+          )}
         </div>
       ) : (
         <img src={LOGO} alt="logo" />
