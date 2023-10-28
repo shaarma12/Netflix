@@ -7,7 +7,7 @@ import useTopRatedMovie from "../Utils/useTopRatedMovie";
 import useUpcomingMovie from "../Utils/useUpcomingMovie";
 import useTopRatedShows from "../Utils/useTopRatedShows";
 import useOnTheAir from "../Utils/useOnTheAir";
-import GPTSearch from "./GPTSearch";
+import GPTPage from "./GPTPage";
 import { useSelector } from "react-redux";
 
 const Browse = () => {
@@ -22,7 +22,7 @@ const Browse = () => {
     <div>
       <Header />
       {GPT ? (
-        <GPTSearch />
+        <GPTPage />
       ) : (
         <>
           <Primary />
