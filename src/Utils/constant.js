@@ -11,3 +11,5 @@ export const options = {
   },
 };
 export const IMG = "https://image.tmdb.org/t/p/w500/";
+export const REACT_APP_OPENAI_KEY =
+  "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";

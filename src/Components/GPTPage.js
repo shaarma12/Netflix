@@ -1,6 +1,7 @@
 import React from "react";
+import GPTSearch from "./GPTSearch";
 
-const GPTSearch = () => {
+const GPTPage = () => {
   return (
     <div>
       <div class="relative">
@@ -15,4 +16,4 @@ const GPTSearch = () => {
   );
 };
 
-export default GPTSearch;
+export default GPTPage;
