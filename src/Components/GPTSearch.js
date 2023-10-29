@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import openai from "../Utils/openai";
 import { options } from "../Utils/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MovieResults } from "../Utils/gptSlice";
+import Lang from "../Utils/LangConstants";
 const GPTSearch = () => {
+  const Languages = useSelector((Store) => Store.config.configuration);
   const inputRef = useRef();
   const dispatch = useDispatch();
   const fetchMovie = async (movie) => {
@@ -48,7 +50,7 @@ const GPTSearch = () => {
           type="text"
           ref={inputRef}
           className="w-[45rem] h-14 text-xl rounded-md placeholder:pl-10 placeholder:text-gray-400 pl-4 bg-[#1e1e1e] text-white"
-          placeholder="Search for Movies, WebSeries and TV Shows..... "
+          placeholder={Lang[Languages].Placeholder}
         />
         <button
           className="bg-[#e50914ef] ml-6 w-24 text-white text-lg font-bold rounded-md hover:opacity-80 transition-all duration-200"
@@ -56,7 +58,7 @@ const GPTSearch = () => {
             openaiAPI();
           }}
         >
-          Search
+          {Lang[Languages].search}
         </button>
       </form>
     </div>
