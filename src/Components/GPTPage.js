@@ -1,5 +1,6 @@
 import React from "react";
 import GPTSearch from "./GPTSearch";
+import GPTMovies from "./GPTMovies";
 
 const GPTPage = () => {
   return (
@@ -12,6 +13,7 @@ const GPTPage = () => {
         <div class="absolute inset-0 bg-black opacity-50"></div>
       </div>
       <GPTSearch />
+      <GPTMovies />
     </div>
   );
 };

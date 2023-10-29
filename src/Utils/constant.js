@@ -12,4 +12,4 @@ export const options = {
 };
 export const IMG = "https://image.tmdb.org/t/p/w500/";
 export const REACT_APP_OPENAI_KEY =
-  "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";
+  "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";
