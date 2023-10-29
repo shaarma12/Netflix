@@ -26,7 +26,6 @@ const GPTSearch = () => {
       model: "gpt-3.5-turbo",
     });
     const result = chatCompletion.choices[0]?.message?.content.split(", ");
-    console.log(result);
 
     const movieData = result.map((i) => {
       return fetchMovie(i);
@@ -35,7 +34,6 @@ const GPTSearch = () => {
     // by the above condition we have fetchMovie fn() which is a async function and it will not stop for one like when first movie data is prepared at that time it will start for another four also now all the five will have promise and now we have to resolve that promise by Promise.All().
 
     const movieResult = await Promise.all(movieData);
-    console.log(movieResult);
     dispatch(MovieResults({ movieResult: movieResult, movieData: result }));
   };
   return (

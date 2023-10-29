@@ -6,10 +6,12 @@ const GPTMovies = () => {
   const { movieName, movieData } = useSelector((store) => store.GPT);
   if (!movieName) return null;
   return (
-    <div>
-      {movieName.map((i, index) => (
-        <MovieList key={i} title={i} movies={movieData[index]} />
-      ))}
+    <div className="absolute top-96 w-[94.8rem]">
+      {movieName.map((i, index) => {
+        return (
+          <MovieList key={i} title={i} movies={movieData[index]?.results} />
+        );
+      })}
     </div>
   );
 };
