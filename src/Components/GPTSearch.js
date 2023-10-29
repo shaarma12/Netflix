@@ -1,14 +1,42 @@
 import React, { useRef } from "react";
 import openai from "../Utils/openai";
+import { options } from "../Utils/constant";
+import { useDispatch } from "react-redux";
+import { MovieResults } from "../Utils/gptSlice";
 const GPTSearch = () => {
   const inputRef = useRef();
+  const dispatch = useDispatch();
+  const fetchMovie = async (movie) => {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/search/movie?query=" +
+        movie +
+        "&include_adult=false&language=en-US&page=1",
+      options
+    );
+    const json = data.json();
+    return json;
+  };
   const openaiAPI = async () => {
+    const query =
+      "Act as a Movie recommdation system and suggest some movies,series and TV Shows for the query" +
+      inputRef.current.value +
+      "only give me names of 5 movies, comma separated like the example result ahead.Example result: Gadar, Sholay, Jab tak hai jaan, Don, Prem Ratan Dhan Payo.";
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: "user", content: inputRef.current.value }],
+      messages: [{ role: "user", content: query }],
       model: "gpt-3.5-turbo",
     });
+    const result = chatCompletion.choices[0]?.message?.content.split(", ");
+    console.log(result);
 
-    console.log(chatCompletion.choices);
+    const movieData = result.map((i) => {
+      return fetchMovie(i);
+    });
+
+    // by the above condition we have fetchMovie fn() which is a async function and it will not stop for one like when first movie data is prepared at that time it will start for another four also now all the five will have promise and now we have to resolve that promise by Promise.All().
+
+    const movieResult = await Promise.all(movieData);
+    console.log(movieResult);
+    dispatch(MovieResults({ movieResult: movieResult, movieData: result }));
   };
   return (
     <div>
