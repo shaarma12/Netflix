@@ -1,8 +1,7 @@
 import OpenAI from "openai";
-import { REACT_APP_OPENAI_KEY } from "./constant";
-
+// import { openai_key } from "./constant";
 const openai = new OpenAI({
-  apiKey: REACT_APP_OPENAI_KEY,
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
