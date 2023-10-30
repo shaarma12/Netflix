@@ -5,7 +5,7 @@ const Moviecard = ({ movieData }) => {
     return null;
   }
   return (
-    <div className=" w-52 hover:scale-125 transition-all duration-300 drop-shadow-xl cursor-pointer">
+    <div className=" w-52 hover:scale-105 transition-all duration-300 drop-shadow-xl cursor-pointer">
       {/* <h1 className="text-white absolute top-16 left-36 text-xl font-bold bg-gradient-to-b from-black">
         {title.slice(0, 10)}
       </h1> */}
