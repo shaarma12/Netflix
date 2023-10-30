@@ -202,7 +202,9 @@ const Login = () => {
         </div>
         <div className="flex mt-20 text-md w-80 ">
           <p className="text-[#a09c9c] mr-1">
-            {signin ? Lang[language]?.newToNetflix : Lang[language]?.signUpNow}
+            {signin
+              ? Lang[language]?.newToNetflix
+              : Lang[language]?.existingUser}
           </p>
           <p
             className="font-medium hover:underline text-white cursor-pointer"
