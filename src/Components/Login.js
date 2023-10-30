@@ -12,12 +12,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { USER_AVATAR } from "../Utils/constant";
+import Lang from "../Utils/LangConstants";
 
 const Login = () => {
   const [signin, setSignin] = useState(true);
+  const language = useSelector((store) => store.config.configuration);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -38,8 +40,8 @@ const Login = () => {
       </div>
 
       <div className="absolute bottom-[-2.8rem] flex flex-col left-[34rem] w-[28rem] h-[41.5rem] bg-black bg-opacity-[0.85] items-center rounded-md">
-        <h1 className="text-white mr-[12.5rem] mt-14 mb-9 text-4xl font-medium">
-          {signin ? "Sign In" : "Sign Up"}
+        <h1 className="text-white w-80 mt-14 mb-9 text-4xl font-medium">
+          {signin ? Lang[language]?.SignIn : Lang[language]?.SignUp}
         </h1>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -51,7 +53,7 @@ const Login = () => {
                 ref={name}
                 className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="text"
-                placeholder="Name"
+                placeholder={Lang[language]?.loginNamePlaceholder}
               />
               <p className="ml-2 text-[#e87c03] mt-0 mb-4 text-sm">
                 {ErrorMessageName}
@@ -63,7 +65,7 @@ const Login = () => {
                 ref={name}
                 className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
                 type="text"
-                placeholder="Name"
+                placeholder={Lang[language]?.loginNamePlaceholder}
               />
             )
           )}
@@ -73,7 +75,7 @@ const Login = () => {
                 ref={email}
                 className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="text"
-                placeholder="Email or phone number"
+                placeholder={Lang[language]?.loginEmailPlaceholder}
               />
               <p className="ml-2 text-[#e87c03] mt-0 mb-4 text-sm">
                 {ErrorMessageEmail}
@@ -84,7 +86,7 @@ const Login = () => {
               ref={email}
               className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="text"
-              placeholder="Email or phone number"
+              placeholder={Lang[language]?.loginEmailPlaceholder}
             />
           )}
           {errorMessagePassword ? (
@@ -93,7 +95,7 @@ const Login = () => {
                 ref={password}
                 className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="password"
-                placeholder="Password"
+                placeholder={Lang[language]?.loginPasswordPlaceholder}
               />
               <p className="ml-2 text-[#e87c03] mt-0 mb-3 text-sm">
                 {errorMessagePassword}
@@ -104,11 +106,11 @@ const Login = () => {
               ref={password}
               className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="password"
-              placeholder="Password"
+              placeholder={Lang[language]?.loginPasswordPlaceholder}
             />
           )}
           <button
-            className="py-[0.8rem] px-[8.3rem] bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
+            className="py-[0.8rem] w-80 bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
             onClick={() => {
               if (!signin) {
                 const errorMessageName = validateName(name.current.value);
@@ -179,24 +181,28 @@ const Login = () => {
               }
             }}
           >
-            {signin ? "Sign In" : "Sign Up"}
+            {signin ? Lang[language]?.SignIn : Lang[language]?.SignUp}
           </button>
         </form>
-        <div className="flex">
-          <div className="flex mr-[8rem]">
+        <div className="flex w-80 justify-between">
+          <div className="flex">
             <input
               className="w-[1.15rem] mr-1 checked:bg-white"
               type="checkbox"
             />
-            <p className="text-gray-300 text-sm">Remember me</p>
+            <p className="text-gray-300 text-sm">
+              {Lang[language]?.RememberME}
+            </p>
           </div>
           <Link to="/">
-            <p className="text-gray-300 text-sm hover:underline">Need help?</p>
+            <p className="text-gray-300 text-sm hover:underline">
+              {Lang[language]?.needHelp}
+            </p>
           </Link>
         </div>
-        <div className="flex mr-[6.8rem] mt-20 text-md ">
+        <div className="flex mt-20 text-md w-80 ">
           <p className="text-[#a09c9c] mr-1">
-            {signin ? "New to Netflix?" : "Existing User?"}
+            {signin ? Lang[language]?.newToNetflix : Lang[language]?.signUpNow}
           </p>
           <p
             className="font-medium hover:underline text-white cursor-pointer"
@@ -204,15 +210,16 @@ const Login = () => {
               setSignin(!signin);
             }}
           >
-            {signin ? "Sign up now" : "Sign in now"}
+            {signin ? Lang[language]?.signUpNow : Lang[language]?.signInNow}
           </p>
         </div>
         <div className="flex">
-          <p className="text-[#a09c9c] px-14 text-sm ml-3 font-medium mt-2">
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot.
+          <p className="text-[#a09c9c] w-80 text-sm ml-1 font-medium mt-3">
+            {Lang[language]?.protected}
             <Link to="/">
-              <span className="text-blue-700 hover:underline">Learn more.</span>
+              <span className="text-blue-700 w-80 hover:underline">
+                {Lang[language]?.learnMore}
+              </span>
             </Link>
           </p>
         </div>

@@ -149,7 +149,23 @@ const Header = () => {
           )}
         </div>
       ) : (
-        <img src={LOGO} alt="logo" />
+        <div>
+          <img src={LOGO} alt="logo" />
+          <select
+            className="mr-6 p-2 bg-black bg-opacity-[0.85] text-white rounded-sm left-[82rem] absolute bottom-6"
+            onClick={(e) => {
+              dispatch(Language(e.target.value));
+            }}
+          >
+            {SUPPORTED_LANG.map((i) => {
+              return (
+                <option key={i.default} value={i.default}>
+                  {i.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       )}
       {userSign && (
         <div>
