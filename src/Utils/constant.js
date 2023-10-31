@@ -6,10 +6,13 @@ export const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: "Bearer" + process.env.REACT_APP_TMDB_API_KEY,
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTk4YmU1NmFhYTkxYTlhNzdjODFmMjkyY2M4YjhiOCIsInN1YiI6IjY1MmU4ZTAyMzU4ZGE3NWI1YzBkMDM1OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IVAAGIn87nBSWu2PngWLXofuNkvAk33KBaA9qM2I4ak",
   },
 };
 export const IMG = "https://image.tmdb.org/t/p/w500/";
+export const API_KEY_OPENAI =
+  "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";
 export const SUPPORTED_LANG = [
   { default: "en", name: "English" },
   { default: "hindi", name: "Hindi" },
