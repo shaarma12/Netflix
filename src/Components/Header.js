@@ -14,6 +14,8 @@ import { GPTsearch } from "../Utils/gptSlice";
 import { Language } from "../Utils/configSlice";
 
 const Header = () => {
+  // Subscribing the cart
+  const cartCount = useSelector((store) => store.cart.cartArray);
   const [userInput, setUserInput] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -230,11 +232,18 @@ const Header = () => {
                 </select>
               )}
             </Link>
-            <img
-              src={notification}
-              alt="notification"
-              className="w-[1.35rem] mr-6 cursor-pointer mb-[0.4rem]"
-            />
+            <Link to="/watchlater" className="mr-6">
+              <img
+                src={notification}
+                alt="notification"
+                className="w-[1.35rem] mr-6 cursor-pointer mb-[0.4rem]"
+              />
+            </Link>
+            {cartCount.length > 0 && (
+              <p className="text-white relative right-7 bottom-2 ">
+                {cartCount.length}
+              </p>
+            )}
 
             <img
               src={userSign.photoURL}

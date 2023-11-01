@@ -1,6 +1,7 @@
 import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import WatchLater from "./WatchLater";
 
 const Body = () => {
   return (
@@ -19,5 +20,9 @@ const appRoute = createBrowserRouter([
   {
     path: "/browse",
     element: <Browse />,
+  },
+  {
+    path: "/watchlater",
+    element: <WatchLater />,
   },
 ]);
