@@ -7,15 +7,13 @@ const WatchLater = () => {
   const cart = useSelector((store) => store.cart.cartArray);
   console.log(cart);
   return (
-    <div>
-      <Header />
-      <h1>WatchLater</h1>
-      <div className="flex overflow-x-scroll scroll-smooth no-scrollbar">
-        <div className="flex gap-2 pl-14">
-          {cart.map((i) => (
-            <Moviecard key={i.id} movieData={i} />
-          ))}
-        </div>
+    <div className="bg-black">
+      {/* <Header /> */}
+      <h1 className="text-white text-center text-xl font-bold">WatchLater</h1>
+      <div className="mt-44 flex gap-3 pl-14 flex-wrap">
+        {cart.map((i) => (
+          <Moviecard key={i.id} movieData={i} />
+        ))}
       </div>
     </div>
   );
