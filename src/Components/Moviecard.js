@@ -2,6 +2,7 @@ import React from "react";
 import { IMG } from "../Utils/constant";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Utils/addToCartSlice";
+import VideoCard from "./VideoCard";
 const Moviecard = ({ movieData }) => {
   const dispatch = useDispatch();
   if (!movieData?.poster_path) {
@@ -10,6 +11,9 @@ const Moviecard = ({ movieData }) => {
   return (
     <div
       className=" w-52 hover:scale-105 transition-all duration-300 drop-shadow-xl cursor-pointer"
+      onMouseEnter={() => {
+        <VideoCard movieid={movieData?.id} />;
+      }}
       onClick={() => {
         dispatch(addToCart(movieData));
       }}
