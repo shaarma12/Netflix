@@ -1,10 +1,13 @@
 import React from "react";
-import Backgroundvideo from "./Backgroundvideo";
+import HoverVideo from "./HoverVideo";
+import { useSelector } from "react-redux";
 
-const VideoCard = ({ movieid }) => {
+const VideoCard = () => {
+  const card = useSelector((store) => store.movie.movieId);
+  console.log(card);
   return (
-    <div className="border-2 border-white absolute text-7xl font-extrabold w-60 h-40">
-      <Backgroundvideo movieId={movieid} />
+    <div className="border-2 border-white text-7xl absolute font-extrabold w-60 h-40">
+      <h1 className="text-white">{card?.id}</h1>
     </div>
   );
 };
