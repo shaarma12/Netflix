@@ -1,13 +1,29 @@
 import React from "react";
 import HoverVideo from "./HoverVideo";
 import { useSelector } from "react-redux";
+import { IMG } from "../Utils/constant";
+import Play from "../Images/Play.png";
 
 const VideoCard = () => {
   const card = useSelector((store) => store.movie.movieId);
   console.log(card);
   return (
-    <div className="border-2 border-white text-7xl absolute font-extrabold w-60 h-40">
-      <h1 className="text-white">{card?.id}</h1>
+    <div className="flex bg-[#141414] flex-col items-center rounded-md scale-y-125  text-7xl absolute top-10 right-5 font-extrabold w-[21rem] z-50 h-[14rem] ml-10">
+      <img
+        src={IMG + card?.backdrop_path}
+        className=" rounded-t-md h-28 w-96"
+      />
+      <div className="flex">
+        <button className="bg-white rounded-full w-9 h-8 px-1 absolute top-32 left-4 hover:opacity-80 mr-2">
+          <img src={Play} alt="Play" className="w-4 ml-2" />
+        </button>
+        <button className="bg-white rounded-full w-9 h-8 px-1 absolute top-32 right-56 hover:opacity-80 mr-2">
+          <img src={Play} alt="Play" className="w-4 ml-2" />
+        </button>
+        <button className="bg-white rounded-full w-9 h-8 px-1 absolute top-32 right-44 hover:opacity-80 mr-2">
+          <img src={Play} alt="Play" className="w-4 ml-2" />
+        </button>
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { addToCart } from "../Utils/addToCartSlice";
 import VideoCard from "./VideoCard";
 import { addMovieId } from "../Utils/moviesDataSlice";
 const Moviecard = ({ movieData }) => {
+  const [see, setSee] = useState(null);
   const dispatch = useDispatch();
   if (!movieData?.poster_path) {
     return null;
@@ -14,6 +15,10 @@ const Moviecard = ({ movieData }) => {
       className=" w-52 hover:scale-105 transition-all duration-300 drop-shadow-xl cursor-pointer"
       onMouseEnter={() => {
         dispatch(addMovieId(movieData));
+        setSee(<VideoCard />);
+      }}
+      onMouseLeave={() => {
+        setSee(null);
       }}
       onClick={() => {
         dispatch(addToCart(movieData));
@@ -22,7 +27,7 @@ const Moviecard = ({ movieData }) => {
       {/* <h1 className="text-white absolute top-16 left-36 text-xl font-bold bg-gradient-to-b from-black">
         {title.slice(0, 10)}
       </h1> */}
-      <VideoCard />
+      <div className="hover:scale-y-125">{see}</div>
       <img src={IMG + movieData?.poster_path} className="rounded-md" />
     </div>
   );
