@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Play from "../Images/Play.png";
 import add from "../Images/add.svg";
 import thumbs from "../Images/thumbs.svg";
+import cool from "../Images/cool.svg";
 import { addToCart } from "../Utils/addToCartSlice";
 
 const VideoCard = () => {
   const [tag, setTag] = useState(null);
   const [onHoverText, setOnHoverText] = useState(null);
   const [duration, setDuration] = useState(false);
+  const [like, setLike] = useState(false);
   const dispatch = useDispatch();
   const card = useSelector((store) => store.movie.movieId);
   const title = !card?.original_title
@@ -68,8 +70,15 @@ const VideoCard = () => {
           onMouseLeave={() => {
             setOnHoverText(null);
           }}
+          onClick={() => {
+            setLike(true);
+          }}
         >
-          <img src={thumbs} alt="Play" className="w-5 ml-[0.15rem]" />
+          {like ? (
+            <img src={cool} alt="cool" className="w-5 ml-[0.15rem]" />
+          ) : (
+            <img src={thumbs} alt="Play" className="w-5 ml-[0.15rem]" />
+          )}
         </button>
       </div>
     </div>
