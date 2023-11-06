@@ -20,9 +20,6 @@ const Moviecard = ({ movieData }) => {
       onMouseLeave={() => {
         setSee(null);
       }}
-      onClick={() => {
-        dispatch(addToCart(movieData));
-      }}
     >
       {/* <h1 className="text-white absolute top-16 left-36 text-xl font-bold bg-gradient-to-b from-black">
         {title.slice(0, 10)}
