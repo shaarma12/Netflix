@@ -17,7 +17,7 @@ const NewVideo = ({ moviehi }) => {
           title="YouTube video player"
           allowFullScreen
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          className="w-[20rem] h-[8.3rem] aspect-video rounded-t-md"
+          className="w-[94.974rem] aspect-video rounded-t-md"
         ></iframe>
       </div>
     </div>
