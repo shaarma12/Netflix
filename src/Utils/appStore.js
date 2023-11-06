@@ -4,6 +4,7 @@ import movieReducer from "./moviesDataSlice";
 import GPTReducer from "./gptSlice";
 import configReducer from "./configSlice";
 import addToCartSliceReducer from "./addToCartSlice";
+import VideoSliceReducer from "./VideoSlice";
 const appStore = configureStore({
   reducer: {
     user: userReducer,
@@ -11,6 +12,7 @@ const appStore = configureStore({
     GPT: GPTReducer,
     config: configReducer,
     cart: addToCartSliceReducer,
+    video: VideoSliceReducer,
   },
 });
 

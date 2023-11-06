@@ -2,6 +2,7 @@ import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import WatchLater from "./WatchLater";
+import Play from "./Play";
 
 const Body = () => {
   return (
@@ -24,5 +25,9 @@ const appRoute = createBrowserRouter([
   {
     path: "/watchlater",
     element: <WatchLater />,
+  },
+  {
+    path: "/watch",
+    element: <Play />,
   },
 ]);

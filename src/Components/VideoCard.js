@@ -6,6 +6,8 @@ import add from "../Images/add.svg";
 import thumbs from "../Images/thumbs.svg";
 import cool from "../Images/cool.svg";
 import { addToCart } from "../Utils/addToCartSlice";
+import { addToVideo } from "../Utils/VideoSlice";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = () => {
   const [tag, setTag] = useState(null);
@@ -13,6 +15,7 @@ const VideoCard = () => {
   const [duration, setDuration] = useState(false);
   const [like, setLike] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const card = useSelector((store) => store.movie.movieId);
   const title = !card?.original_title
     ? card?.original_name
@@ -38,6 +41,10 @@ const VideoCard = () => {
           }}
           onMouseLeave={() => {
             setOnHoverText(null);
+          }}
+          onClick={() => {
+            dispatch(addToVideo(card));
+            navigate("/watch");
           }}
         >
           <img src={Play} alt="Play" className="w-4 ml-2" />
