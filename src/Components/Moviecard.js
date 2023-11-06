@@ -21,9 +21,6 @@ const Moviecard = ({ movieData }) => {
         setSee(null);
       }}
     >
-      {/* <h1 className="text-white absolute top-16 left-36 text-xl font-bold bg-gradient-to-b from-black">
-        {title.slice(0, 10)}
-      </h1> */}
       <div className="hover:scale-y-125">{see}</div>
       <img src={IMG + movieData?.poster_path} className="rounded-md" />
     </div>

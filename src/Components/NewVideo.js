@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import useMovieCard from "../Utils/useMovieCard";
+import usePlayCard from "../Utils/usePlayCard";
 
-const HoverVideo = ({ moviehi }) => {
-  const cardTrailer = useSelector((store) => store.movie?.CardVideo);
-  useMovieCard({ moviehi });
+const NewVideo = ({ moviehi }) => {
+  const clip = useSelector((store) => store.movie?.clipVideo);
+  usePlayCard({ moviehi });
   return (
     <div>
       <div>
         <iframe
           src={
             "https://www.youtube.com/embed/" +
-            cardTrailer?.key +
+            clip?.key +
             "?autoplay=1&loop=1&autopause=0&mute=1"
           }
           title="YouTube video player"
@@ -24,4 +24,4 @@ const HoverVideo = ({ moviehi }) => {
   );
 };
 
-export default HoverVideo;
+export default NewVideo;
