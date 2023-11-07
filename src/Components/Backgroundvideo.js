@@ -1,7 +1,6 @@
 import React from "react";
 import useMovieVideo from "../Utils/useMovieVideo";
 import { useSelector } from "react-redux";
-import useMovieCard from "../Utils/useMovieCard";
 
 const Backgroundvideo = ({ movieId }) => {
   const bgTrailer = useSelector((store) => store.movie?.trailer);

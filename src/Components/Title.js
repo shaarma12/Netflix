@@ -1,8 +1,15 @@
 import React from "react";
 import Play from "../Images/Play.png";
 import info from "../Images/info.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { addToVideo } from "../Utils/VideoSlice";
+import { useNavigate } from "react-router-dom";
 
 const Title = ({ title, overview }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const movies = useSelector((store) => store.movie?.popularMovies);
+  const movie = movies[8];
   const Title = title.toUpperCase();
   return (
     <div className="absolute w-[94.5em] aspect-video bg-gradient-to-r from-black">
@@ -14,7 +21,13 @@ const Title = ({ title, overview }) => {
           {overview.slice(0, 341)}
         </h3>
         <div className="flex">
-          <button className="bg-white text-black font-bold h-[3rem] w-[8rem]  rounded-md mr-3 hover:opacity-80">
+          <button
+            className="bg-white text-black font-bold h-[3rem] w-[8rem]  rounded-md mr-3 hover:opacity-80"
+            onClick={() => {
+              dispatch(addToVideo(movie));
+              navigate("/watch");
+            }}
+          >
             <div className="flex pl-5 justify-center">
               <img
                 src={Play}

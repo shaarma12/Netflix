@@ -12,7 +12,7 @@ export const options = {
 };
 export const IMG = "https://image.tmdb.org/t/p/w500/";
 export const API_KEY_OPENAI =
-  "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";
+  "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";
 export const SUPPORTED_LANG = [
   { default: "en", name: "English" },
   { default: "hindi", name: "Hindi" },
