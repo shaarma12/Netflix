@@ -11,8 +11,7 @@ export const options = {
   },
 };
 export const IMG = "https://image.tmdb.org/t/p/w500/";
-export const API_KEY_OPENAI =
-  "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";
+export const API_KEY_OPENAI = process.env.REACT_APP_OPENAI_API_KEY;
 export const SUPPORTED_LANG = [
   { default: "en", name: "English" },
   { default: "hindi", name: "Hindi" },

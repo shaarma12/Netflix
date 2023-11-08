@@ -9,7 +9,7 @@ const Title = ({ title, overview }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const movies = useSelector((store) => store.movie?.popularMovies);
-  const movie = movies[8];
+  const movie = movies[12];
   const Title = title.toUpperCase();
   return (
     <div className="absolute w-[94.5em] aspect-video bg-gradient-to-r from-black">
