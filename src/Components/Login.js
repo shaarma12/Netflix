@@ -30,18 +30,18 @@ const Login = () => {
 
   return (
     <div>
-      <div class="relative">
+      <div class="relative ">
         <Header />
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="Your Image"
-          className=""
+          className="h-screen object-cover"
         />
         <div class="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
-      <div className="absolute bottom-[-2.8rem] flex flex-col left-[34rem] w-[28rem] h-[41.5rem] bg-black bg-opacity-[0.85] items-center rounded-md">
-        <h1 className="text-white w-80 mt-14 mb-9 text-4xl font-medium">
+      <div className="absolute md:bottom-[-2.8rem] bottom-8 flex flex-col md:left-[34rem] left-8 md:w-[28rem] md:h-[41.5rem] w-[20rem] h-[34rem] bg-black bg-opacity-[0.85] items-center rounded-md">
+        <h1 className="text-white md:w-80 w-60 md:mt-14 mt-5 md:mb-9 mb-6 md:text-4xl text-3xl font-medium md:">
           {signin ? Lang[language]?.SignIn : Lang[language]?.SignUp}
         </h1>
         <form
@@ -52,7 +52,7 @@ const Login = () => {
             <div>
               <input
                 ref={name}
-                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                className="mb-[0.40rem] py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="text"
                 placeholder={Lang[language]?.loginNamePlaceholder}
               />
@@ -64,7 +64,7 @@ const Login = () => {
             !signin && (
               <input
                 ref={name}
-                className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
+                className="mb-4 py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
                 type="text"
                 placeholder={Lang[language]?.loginNamePlaceholder}
               />
@@ -74,7 +74,7 @@ const Login = () => {
             <div>
               <input
                 ref={email}
-                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                className="mb-[0.40rem] py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="text"
                 placeholder={Lang[language]?.loginEmailPlaceholder}
               />
@@ -85,7 +85,7 @@ const Login = () => {
           ) : (
             <input
               ref={email}
-              className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
+              className="mb-4 py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] md:placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="text"
               placeholder={Lang[language]?.loginEmailPlaceholder}
             />
@@ -94,7 +94,7 @@ const Login = () => {
             <div>
               <input
                 ref={password}
-                className="mb-[0.40rem] py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
+                className="mb-[0.40rem] py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg border-b-[3px] border-[#e87c03]"
                 type="password"
                 placeholder={Lang[language]?.loginPasswordPlaceholder}
               />
@@ -105,13 +105,13 @@ const Login = () => {
           ) : (
             <input
               ref={password}
-              className="mb-4 py-[0.7rem] w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
+              className="mb-4 py-[0.7rem] md:w-80 px-5 rounded-md bg-[#333] placeholder:text-md placeholder-[#8c8c8c] text-white text-lg"
               type="password"
               placeholder={Lang[language]?.loginPasswordPlaceholder}
             />
           )}
           <button
-            className="py-[0.8rem] w-80 bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
+            className="py-[0.8rem] md:w-80 w-60 bg-[#e50914] text-white mt-6 mb-3 rounded-md font-bold"
             onClick={() => {
               if (!signin) {
                 const errorMessageName = validateName(name.current.value);
@@ -185,23 +185,23 @@ const Login = () => {
             {signin ? Lang[language]?.SignIn : Lang[language]?.SignUp}
           </button>
         </form>
-        <div className="flex w-80 justify-between">
+        <div className="flex md:w-80 w-60 justify-between">
           <div className="flex">
             <input
-              className="w-[1.15rem] mr-1 checked:bg-white"
+              className="md:w-[1.15rem] w-3 mr-1 checked:bg-white"
               type="checkbox"
             />
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-xs md:text-sm">
               {Lang[language]?.RememberME}
             </p>
           </div>
           <Link to="/">
-            <p className="text-gray-300 text-sm hover:underline">
+            <p className="text-gray-300 text-xs md:text-sm hover:underline">
               {Lang[language]?.needHelp}
             </p>
           </Link>
         </div>
-        <div className="flex mt-20 text-md w-80 ">
+        <div className="flex md:mt-20 mt-7 md:text-md text-sm md:w-80 w-60 ">
           <p className="text-[#a09c9c] mr-1">
             {signin
               ? Lang[language]?.newToNetflix
@@ -217,7 +217,7 @@ const Login = () => {
           </p>
         </div>
         <div className="flex">
-          <p className="text-[#a09c9c] w-80 text-sm ml-1 font-medium mt-3">
+          <p className="text-[#a09c9c] md:w-80 w-64 md:text-sm text-xs md:ml-1 ml-3 font-medium mt-3">
             {Lang[language]?.protected}
             <Link to="/">
               <span className="text-blue-700 w-80 hover:underline">

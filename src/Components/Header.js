@@ -51,7 +51,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute w-[13.5rem] ml-6 mb-1 z-50 opacity-100 filter contrast-125">
+    <div className="absolute md:w-[13.5rem] w-32 md:ml-6 md:mb-1 mt-2 z-50 opacity-100 filter contrast-125">
       {userSign ? (
         <div className="sticky top-0">
           {GPTPage ? (
