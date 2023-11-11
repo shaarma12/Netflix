@@ -40,7 +40,7 @@ const Login = () => {
         <div class="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
-      <div className="absolute md:bottom-[-2.8rem] bottom-8 flex flex-col md:left-[34rem] left-8 md:w-[28rem] md:h-[41.5rem] w-[20rem] h-[34rem] bg-black bg-opacity-[0.85] items-center rounded-md">
+      <div className="absolute md:bottom-[-2.8rem] bottom-[5%] flex flex-col md:left-[34rem] left-[7%] md:w-[28rem] md:h-[41.5rem] w-[85%] h-[75%] bg-black bg-opacity-[0.85] items-center rounded-md">
         <h1 className="text-white md:w-80 w-60 md:mt-14 mt-5 md:mb-9 mb-6 md:text-4xl text-3xl font-medium md:">
           {signin ? Lang[language]?.SignIn : Lang[language]?.SignUp}
         </h1>
