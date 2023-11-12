@@ -201,7 +201,7 @@ const Login = () => {
             </p>
           </Link>
         </div>
-        <div className="flex md:mt-20 mt-7 md:text-md text-sm md:w-80 w-60 ">
+        <div className="flex md:mt-20 mt-7 md:text-md text-sm md:w-80 w-60">
           <p className="text-[#a09c9c] mr-1">
             {signin
               ? Lang[language]?.newToNetflix
