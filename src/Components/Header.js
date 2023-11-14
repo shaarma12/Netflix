@@ -57,7 +57,7 @@ const Header = () => {
           {GPTPage ? (
             <div className="flex mt-3">
               <img src={LOGO} alt="logo" className="w-32 ml-5" />
-              <ul className="flex text-white mx-9 mt-3 ">
+              <ul className="hidden md:flex md: text-white mx-9 md:mt-3 ">
                 <Link to="/browse">
                   <li
                     className="mr-5 hover:opacity-70 transition-all duration-200"
@@ -173,12 +173,12 @@ const Header = () => {
         <div>
           <div className="flex justify-center relative left-[75rem] bottom-11">
             {showInput ? (
-              <div className="flex w-52">
+              <div className="hidden md:flex md:w-52">
                 {
                   <img
                     src={search}
                     alt="search"
-                    className="w-12 bg-[#2a2a2ab3] rounded-l-sm pr-3 pl-3 relative right-[13rem] bottom-[0.15rem] border-y-2 border-l-2 border-gray-200"
+                    className="hidden md:w-12 md:bg-[#2a2a2ab3] md:rounded-l-sm md:pr-3 md:pl-3 md:relative md:right-[13rem] md:bottom-[0.15rem] md:border-y-2 md:border-l-2 md:border-gray-200"
                     onClick={() => {
                       userInput ? setShowInput(true) : setShowInput(false);
                     }}
@@ -190,14 +190,14 @@ const Header = () => {
                     setUserInput(e.target.value);
                   }}
                   placeholder="Movies,TV Shows"
-                  className="bg-[#2a2a2ab3] rounded-r-sm px-9 py-1 -ml-56 mr-10 relative bottom-[0.15rem] outline-none text-white border-y-2 border-r-2 border-gray-200"
+                  className="md:bg-[#2a2a2ab3] md:rounded-r-sm md:px-9 md:py-1 md:-ml-56 md:mr-10 md:relative md:bottom-[0.15rem] md:outline-none md:text-white md:border-y-2 md:border-r-2 md:border-gray-200"
                 />
               </div>
             ) : (
               <img
                 src={search}
                 alt="Search"
-                className="w-6 cursor-pointer mr-6 mb-1"
+                className="hidden md:w-6 md:cursor-pointer md:mr-6 md:mb-1"
                 onClick={() => {
                   setShowInput(true);
                 }}
