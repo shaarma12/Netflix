@@ -41,7 +41,7 @@ const GPTSearch = () => {
   return (
     <div>
       <form
-        className="absolute bottom-[30rem] flex justify-center left-[21rem]"
+        className="md:absolute absolute md:bottom-[30rem] top-40 md:flex md:justify-center md:left-[21rem] flex flex-col"
         onClick={(e) => {
           e.preventDefault();
         }}
@@ -49,7 +49,7 @@ const GPTSearch = () => {
         <input
           type="text"
           ref={inputRef}
-          className="w-[45rem] h-14 text-xl rounded-md placeholder:pl-10 placeholder:text-gray-400 pl-4 bg-[#1e1e1e] text-white"
+          className="md:w-[45rem] w-72 h-14 ml-14 md:text-xl md:rounded-md md:placeholder:pl-10 placeholder:pl-6 placeholder:text-gray-400 md:placeholder:text-gray-400 md:pl-4  md:bg-[#1e1e1e] bg-[#1e1e1e] md:text-white text-white rounded-md"
           placeholder={Lang[Languages].Placeholder}
         />
         <button
