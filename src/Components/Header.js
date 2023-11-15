@@ -219,7 +219,7 @@ const Header = () => {
               )}
               {GPTPage && (
                 <select
-                  className="mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm"
+                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm mr-[120rem]"
                   onClick={(e) => {
                     dispatch(Language(e.target.value));
                   }}

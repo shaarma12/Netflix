@@ -19,7 +19,7 @@ const Dropdown = ({ setShowDropDown, imgRef }) => {
   });
   return (
     <div
-      className="absolute top-14 text-white w-56 ml-3  p-4 bg-[#202020b3] rounded-sm"
+      className="absolute top-14 text-white w-56 ml-8  p-4 bg-[#202020b3] rounded-sm"
       ref={dropDownRef}
     >
       <div className="flex mb-2 mt-2">
