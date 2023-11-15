@@ -219,7 +219,7 @@ const Header = () => {
               )}
               {GPTPage && (
                 <select
-                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm mr-[120rem]"
+                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm -ml-[1150%]"
                   onClick={(e) => {
                     dispatch(Language(e.target.value));
                   }}
@@ -246,15 +246,16 @@ const Header = () => {
                 {cartCount.length}
               </p>
             )}
-
-            <img
-              src={userSign.photoURL}
-              ref={imgRef}
-              className="w-8 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
-              onClick={() => {
-                setShowDropDown(!showDropDown);
-              }}
-            />
+            <div className="hidden md:block">
+              <img
+                src={userSign.photoURL}
+                ref={imgRef}
+                className="w-8 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
+                onClick={() => {
+                  setShowDropDown(!showDropDown);
+                }}
+              />
+            </div>
             {showDropDown ? (
               <img src={up} className="w-4 cursor-pointer" />
             ) : (

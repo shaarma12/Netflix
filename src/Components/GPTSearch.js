@@ -49,11 +49,11 @@ const GPTSearch = () => {
         <input
           type="text"
           ref={inputRef}
-          className="md:w-[45rem] w-80 h-14 md:ml-14 -ml-80 md:text-xl md:rounded-md md:placeholder:pl-10 placeholder:pl-6 placeholder:text-gray-400 md:placeholder:text-gray-400 md:pl-4 pl-4 md:bg-[#1e1e1e] bg-[#1e1e1e] md:text-white text-white rounded-md"
+          className="md:w-[45rem] w-80 h-14 md:ml-14 -ml-[95%] md:text-xl md:rounded-md md:placeholder:pl-10 placeholder:pl-6 placeholder:text-gray-400 md:placeholder:text-gray-400 md:pl-4 pl-4 md:bg-[#1e1e1e] bg-[#1e1e1e] md:text-white text-white rounded-md"
           placeholder={Lang[Languages].Placeholder}
         />
         <button
-          className="bg-[#e50914ef] md:ml-6 md:w-24 w-64 h-14 absolute md:top-0 top-20 md:left-[48rem] -left-72 md:h-14 text-white text-lg font-bold rounded-md hover:opacity-80 transition-all duration-200"
+          className="bg-[#e50914ef] md:ml-6 md:w-24 w-44 h-12 absolute md:top-0 top-20 md:left-[48rem] -left-[73%] md:h-14 text-white text-lg font-bold rounded-md hover:opacity-80 transition-all duration-200"
           onClick={() => {
             openaiAPI();
           }}
