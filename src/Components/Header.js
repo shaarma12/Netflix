@@ -154,7 +154,7 @@ const Header = () => {
         <div>
           <img src={LOGO} alt="logo" />
           <select
-            className="md:mr-6 md:p-2 p-1 text-sm bg-black bg-opacity-[0.85] text-white rounded-sm md:left-[82rem] left-[17rem] relative bottom-10 md:bottom-6"
+            className="md:mr-6 md:p-2 p-1 text-sm bg-black bg-opacity-[0.85] text-white rounded-sm md:left-[82rem] left-[17rem] relative bottom-10 md:bottom-14"
             onClick={(e) => {
               dispatch(Language(e.target.value));
             }}
@@ -219,7 +219,7 @@ const Header = () => {
               )}
               {GPTPage && (
                 <select
-                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm -ml-[1150%]"
+                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm -ml-[1150%] md:ml-0"
                   onClick={(e) => {
                     dispatch(Language(e.target.value));
                   }}
