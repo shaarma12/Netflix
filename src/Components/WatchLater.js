@@ -28,7 +28,7 @@ const WatchLater = () => {
       </Link>
       {!cart.length == 0 && (
         <button
-          className="bg-[#d4d4d4] text-red-600 relative left-[82rem]  p-2 text-lg font-bold rounded-md hover:opacity-80"
+          className="bg-[#d4d4d4] text-red-600 md:relative relative left-[15rem] md:left-[82rem] top-5  p-2 text-lg font-bold rounded-md hover:opacity-80"
           onClick={() => {
             dispatch(remove());
           }}
@@ -52,7 +52,7 @@ const WatchLater = () => {
           </h1>
         </div>
       )}
-      <div className="mt-32 flex gap-3 pl-14 flex-wrap">
+      <div className="mt-32 flex md:gap-3 gap-4 md:pl-14 pl-20 flex-wrap">
         {cart.map((i) => (
           <Moviecard key={i.id} movieData={i} />
         ))}
