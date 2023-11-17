@@ -56,7 +56,14 @@ const Header = () => {
         <div className="sticky top-0">
           {GPTPage ? (
             <div className="flex mt-3">
-              <img src={LOGO} alt="logo" className="w-32 ml-5" />
+              <img
+                src={LOGO}
+                alt="logo"
+                className="w-32 ml-5"
+                onClick={() => {
+                  dispatch(GPTsearch(false));
+                }}
+              />
               <ul className="hidden md:flex md: text-white mx-9 md:mt-3 ">
                 <Link to="/browse">
                   <li
@@ -234,32 +241,30 @@ const Header = () => {
                 </select>
               )}
             </Link>
-            <Link to="/watchlater" className="mr-6 md:mr-6 md:block hidden">
+            <Link to="/watchlater" className="mr-6">
               <img
                 src={notification}
                 alt="notification"
-                className="w-[1.35rem] mr-6 cursor-pointer mb-[0.4rem]"
+                className="w-[1.35rem] md:mr-6 absolute md:static right-[67rem] md:right-0 cursor-pointer md:mb-[0.4rem] top-1"
               />
             </Link>
             {cartCount.length > 0 && (
-              <p className="text-white relative right-7 bottom-2 ">
+              <p className="text-white md:relative md:right-7 absolute right-[66.5rem] bottom-2 ">
                 {cartCount.length}
               </p>
             )}
-            <div className="hidden md:block">
-              <img
-                src={userSign.photoURL}
-                ref={imgRef}
-                className="w-8 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
-                onClick={() => {
-                  setShowDropDown(!showDropDown);
-                }}
-              />
-            </div>
+            <img
+              src={userSign.photoURL}
+              ref={imgRef}
+              className="md:w-8 w-0 rounded-md relative bottom-[0.15rem] cursor-pointer mr-2"
+              onClick={() => {
+                setShowDropDown(!showDropDown);
+              }}
+            />
             {showDropDown ? (
-              <img src={up} className="w-4 cursor-pointer" />
+              <img src={up} className="md:w-4 w-0 cursor-pointer" />
             ) : (
-              <img src={down} className="w-4 cursor-pointer" />
+              <img src={down} className="md:w-4 w-0 cursor-pointer" />
             )}
             {showDropDown && (
               <Dropdown setShowDropDown={setShowDropDown} imgRef={imgRef} />
