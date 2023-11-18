@@ -7,9 +7,13 @@ import { LOGO } from "../Utils/constant";
 const Play = () => {
   const video = useSelector((store) => store.video?.videoArray);
   return (
-    <div className="-mt-28">
+    <div className="md:-mt-28 mt-44">
       <Link to="/browse">
-        <img src={LOGO} alt="logo" className="w-60 ml-5 top-5 absolute" />
+        <img
+          src={LOGO}
+          alt="logo"
+          className="w-60 md:ml-5 ml-14 top-5 absolute"
+        />
       </Link>
       <NewVideo moviehi={video?.id} />
     </div>
