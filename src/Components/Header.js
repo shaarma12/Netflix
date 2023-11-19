@@ -110,8 +110,12 @@ const Header = () => {
             </div>
           ) : (
             <div className="flex mt-14">
-              <img src={LOGO} alt="logo" className="w-32 ml-5" />
-              <ul className="flex text-white mx-9 mt-3 ">
+              <img
+                src={LOGO}
+                alt="logo"
+                className="md:w-32 w-24 md:-mt-0 -mt-3 md:ml-5 ml-2"
+              />
+              <ul className="hidden md:flex text-white mx-9 mt-3 ">
                 <Link to="/browse">
                   <li
                     className="mr-5 hover:opacity-70 transition-all duration-200"
@@ -215,13 +219,17 @@ const Header = () => {
             <Link to="/browse">
               {!GPTPage && (
                 <div
-                  className="flex hover:opacity-70 transition-all duration-200"
+                  className="flex hover:opacity-70 transition-all duration-200 text-sm md:text-lg md:mt-0 mt-2"
                   onClick={() => {
                     dispatch(GPTsearch(true));
                   }}
                 >
-                  <p className="text-white mr-1">GPT</p>
-                  <p className="text-white mr-6">Search</p>
+                  <p className="text-white md:mr-1 md:static absolute right-[65rem]">
+                    GPT
+                  </p>
+                  <p className="text-white md:mr-6 md:static absolute right-[62.2rem]">
+                    Search
+                  </p>
                 </div>
               )}
               {GPTPage && (
@@ -245,7 +253,7 @@ const Header = () => {
               <img
                 src={notification}
                 alt="notification"
-                className="w-[1.35rem] md:mr-6 absolute md:static right-[67rem] md:right-0 cursor-pointer md:mb-[0.4rem] top-1"
+                className="w-[1.2rem] md:mr-6 absolute md:static right-[69rem] md:right-0 cursor-pointer md:mb-[0.4rem] md:top-1 top-2"
               />
             </Link>
             {cartCount.length > 0 && (

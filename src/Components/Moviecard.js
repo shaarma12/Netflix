@@ -12,7 +12,7 @@ const Moviecard = ({ movieData }) => {
   }
   return (
     <div
-      className=" w-52 hover:scale-105 transition-all duration-300 drop-shadow-xl cursor-pointer"
+      className=" md:w-52 w-36 hover:scale-105 transition-all duration-300 drop-shadow-xl cursor-pointer"
       onMouseEnter={() => {
         dispatch(addMovieId(movieData));
         setSee(<VideoCard />);
