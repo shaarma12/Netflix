@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO, SUPPORTED_LANG } from "../Utils/constant";
 import { useEffect, useRef, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import search from "../Images/search.svg";
 import notification from "../Images/notification.svg";
 import up from "../Images/up.svg";
@@ -219,22 +219,22 @@ const Header = () => {
             <Link to="/browse">
               {!GPTPage && (
                 <div
-                  className="flex hover:opacity-70 transition-all duration-200 text-sm md:text-lg md:mt-0 mt-2"
+                  className="flex hover:opacity-70 transition-all duration-200  md:text-lg md:mt-0 mt-2"
                   onClick={() => {
                     dispatch(GPTsearch(true));
                   }}
                 >
-                  <p className="text-white md:mr-1 md:static absolute right-[66.5rem]">
+                  <p className="text-white md:mr-1 md:static absolute right-[68.2rem]">
                     GPT
                   </p>
-                  <p className="text-white md:mr-6 md:static absolute right-[63.7rem]">
+                  <p className="text-white md:mr-6 md:static absolute right-[65rem]">
                     Search
                   </p>
                 </div>
               )}
               {GPTPage && (
                 <select
-                  className="md:mr-6 p-[0.15rem] bg-transparent md:bg-[#2a2a2ab3] text-white rounded-sm -ml-[1200%] md:mt-0 mt-1 md:ml-0"
+                  className="md:mr-6 p-[0.15rem] bg-transparent md:bg-[#2a2a2ab3] text-white rounded-sm -ml-[1230%] md:mt-0 mt-1 md:ml-0"
                   onClick={(e) => {
                     dispatch(Language(e.target.value));
                   }}
@@ -257,18 +257,33 @@ const Header = () => {
               <img
                 src={notification}
                 alt="notification"
-                className="w-[1.2rem] md:w-20 md:mr-6 absolute md:static right-[69rem] md:right-0 cursor-pointer md:mb-[0.4rem] md:top-1 top-2"
+                className="w-[1.2rem] md:w-20 md:mr-6 absolute md:static right-[70.5rem] md:right-0 cursor-pointer md:mb-[0.4rem] md:top-1 top-2"
               />
             </Link>
             {cartCount.length > 0 && (
-              <p className="text-white md:relative md:right-7 absolute right-[68.5rem] bottom-2 ">
+              <p className="text-white md:relative md:right-7 absolute right-[70rem] bottom-3 ">
                 {cartCount.length}
               </p>
             )}
+            <div
+              className="md:hidden flex absolute text-white right-[60.5rem] top-[0.4rem]"
+              onClick={() => {
+                signOut(auth)
+                  .then(() => {
+                    // Sign-out successful.
+                  })
+                  .catch((error) => {
+                    // An error happened.
+                  });
+              }}
+            >
+              <p className="mr-1">Sign</p>
+              <p>Out</p>
+            </div>
             <img
               src={userSign.photoURL}
               ref={imgRef}
-              className="md:w-8 w-5 rounded-md md:relative bottom-[0.15rem] cursor-pointer md:mr-2 absolute md:right-0 right-[61.5rem]  md:-top-1 top-2"
+              className="hidden md:block md:w-8 w-5 rounded-md md:relative bottom-[0.15rem] cursor-pointer md:mr-2 absolute md:right-0 right-[61.5rem]  md:-top-1 top-2"
               onClick={() => {
                 setShowDropDown(!showDropDown);
               }}
