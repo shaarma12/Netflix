@@ -234,14 +234,18 @@ const Header = () => {
               )}
               {GPTPage && (
                 <select
-                  className="md:mr-6 p-[0.15rem] bg-[#2a2a2ab3] text-white rounded-sm -ml-[1150%] md:ml-0"
+                  className="md:mr-6 p-[0.15rem] bg-transparent md:bg-[#2a2a2ab3] text-white rounded-sm -ml-[1200%] md:mt-0 mt-1 md:ml-0"
                   onClick={(e) => {
                     dispatch(Language(e.target.value));
                   }}
                 >
                   {SUPPORTED_LANG.map((i) => {
                     return (
-                      <option key={i.default} value={i.default}>
+                      <option
+                        key={i.default}
+                        value={i.default}
+                        className="md:bg-none bg-[#2a2a2ab3]"
+                      >
                         {i.name}
                       </option>
                     );
