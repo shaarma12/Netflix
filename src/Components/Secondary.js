@@ -10,7 +10,7 @@ const Secondary = () => {
   const topRatedShows = useSelector((store) => store.movie?.topRatedShows);
   const onAirShow = useSelector((store) => store.movie?.onTheAir);
   return (
-    <div className="bg-gradient-to-b from-black to-[#141414]">
+    <div className="md:h-full h-full md:object-cover w-full md:static fixed bg-gradient-to-b from-black to-[#141414]">
       <div className="md:-mt-[10rem] -mt-12 relative">
         <MovieList title="Now Playing Movies" movies={movies1} />
         <MovieList title="Popular Movies" movies={movies2} />

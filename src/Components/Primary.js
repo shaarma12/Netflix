@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const Primary = () => {
   const movies = useSelector((store) => store.movie?.popularMovies);
   if (movies === null) return;
-  const movie = movies[12];
+  const movie = movies[0];
   const { title, overview, id } = movie;
   return (
     <div>
