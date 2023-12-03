@@ -224,10 +224,10 @@ const Header = () => {
                     dispatch(GPTsearch(true));
                   }}
                 >
-                  <p className="text-white md:mr-1 md:static absolute right-[68.2rem]">
+                  <p className="text-white md:mr-1 md:static absolute right-[68.6rem]">
                     GPT
                   </p>
-                  <p className="text-white md:mr-6 md:static absolute right-[65rem]">
+                  <p className="text-white md:mr-6 md:static absolute right-[65.5rem]">
                     Search
                   </p>
                 </div>
@@ -257,16 +257,16 @@ const Header = () => {
               <img
                 src={notification}
                 alt="notification"
-                className="w-[1.2rem] md:w-20 md:mr-6 absolute md:static right-[70.5rem] md:right-0 cursor-pointer md:mb-[0.4rem] md:top-1 top-2"
+                className="w-[1.2rem] md:w-20 md:mr-6 absolute md:static right-[71rem] md:right-0 cursor-pointer md:mb-[0.4rem] md:top-1 top-2"
               />
             </Link>
             {cartCount.length > 0 && (
-              <p className="text-white md:relative md:right-7 absolute right-[70rem] bottom-3 ">
+              <p className="text-white md:relative md:right-7 absolute right-[70.5rem] bottom-3 ">
                 {cartCount.length}
               </p>
             )}
             <div
-              className="md:hidden flex absolute text-white right-[60.5rem] top-[0.4rem]"
+              className="md:hidden flex absolute text-white right-[61rem] top-[0.4rem]"
               onClick={() => {
                 signOut(auth)
                   .then(() => {
